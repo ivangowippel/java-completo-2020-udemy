@@ -54,6 +54,8 @@ public class Q_ExercicioLista2 {
 		for (Funcionario1 funcionario : list) {
 			System.out.println(funcionario);
 		}
+		
+		sc.close();
 	}
 
 }
