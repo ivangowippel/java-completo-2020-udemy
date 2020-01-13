@@ -8,7 +8,7 @@ public class ZA_ExercicioHeranca {
 
 	public static void main(String[] args) {
 		
-		ContaComum comum = new ContaComum(1001, "Alex", 0.0);
+		//ContaComum comum = new ContaComum(1001, "Alex", 0.0);
 		ContaEmpresarial empresarial = new ContaEmpresarial(1002, "Maria", 0.0, 500.0);
 		
 		// UPCASTING
