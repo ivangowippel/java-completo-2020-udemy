@@ -56,5 +56,4 @@ public class Reserva {
 				+ duracao()
 				+ " noites";
 	}
-	
 }

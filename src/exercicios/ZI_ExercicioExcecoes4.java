@@ -45,8 +45,6 @@ public class ZI_ExercicioExcecoes4 {
 				System.out.println("Reserva: " + reserva);
 			}
 		}
-
 		sc.close();
 	}
-
 }
