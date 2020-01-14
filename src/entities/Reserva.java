@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import exceptions.ExcecaoDeDominio;
+
 public class Reserva {
 
 	private Integer numeroQuarto;
@@ -13,6 +15,9 @@ public class Reserva {
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	
 	public Reserva(Integer numeroQuarto, Date checkIn, Date checkOut) {
+		if (!checkOut.after(checkIn)) {
+			throw new ExcecaoDeDominio("A data do check-out deve ser posterior à data do check-in");
+		}
 		this.numeroQuarto = numeroQuarto;
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
@@ -39,17 +44,16 @@ public class Reserva {
 		return TimeUnit.DAYS.convert(diferenca, TimeUnit.MILLISECONDS);
 	}
 	
-	public String atualizarDatas(Date checkIn, Date checkOut) {
+	public void atualizarDatas(Date checkIn, Date checkOut) {
 		Date now = new Date();
 		if (checkIn.before(now) || checkOut.before(now)) {
-			return "As datas da reserva para atualização devem ser futuras";
+			throw new ExcecaoDeDominio("As datas da reserva para atualização devem ser futuras");
 		}
 		if (!checkOut.after(checkIn)) {
-			return "A data do check-out deve ser posterior à data do check-in";
+			throw new ExcecaoDeDominio("A data do check-out deve ser posterior à data do check-in");
 		}
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
-		return null;
 	}
 	
 	@Override
@@ -64,5 +68,4 @@ public class Reserva {
 				+ duracao()
 				+ " noites";
 	}
-	
 }
