@@ -39,9 +39,17 @@ public class Reserva {
 		return TimeUnit.DAYS.convert(diferenca, TimeUnit.MILLISECONDS);
 	}
 	
-	public void atualizarDatas(Date checkIn, Date checkOut) {
+	public String atualizarDatas(Date checkIn, Date checkOut) {
+		Date now = new Date();
+		if (checkIn.before(now) || checkOut.before(now)) {
+			return "As datas da reserva para atualização devem ser futuras";
+		}
+		if (!checkOut.after(checkIn)) {
+			return "A data do check-out deve ser posterior à data do check-in";
+		}
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
+		return null;
 	}
 	
 	@Override
@@ -56,4 +64,5 @@ public class Reserva {
 				+ duracao()
 				+ " noites";
 	}
+	
 }

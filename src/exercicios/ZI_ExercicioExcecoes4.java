@@ -34,17 +34,16 @@ public class ZI_ExercicioExcecoes4 {
 			checkIn = sdf.parse(sc.next());
 			System.out.print("Data do check-out (DD/MM/AAAA): ");
 			checkOut = sdf.parse(sc.next());
-			
-			Date now = new Date();
-			if (checkIn.before(now) || checkOut.before(now)) {
-				System.out.println("Erro na reserva: as datas da reserva para atualização devem ser futuras");
-			} else if (!checkOut.after(checkIn)) {
-				System.out.println("Erro na reserva: a data do check-out deve ser posterior à data do check-in");
+
+			String erro = reserva.atualizarDatas(checkIn, checkOut);
+			if (erro != null) {
+				System.out.println("Erro na reserva: " + erro);
 			} else {
-				reserva.atualizarDatas(checkIn, checkOut);
 				System.out.println("Reserva: " + reserva);
 			}
 		}
+		
 		sc.close();
 	}
+	
 }
