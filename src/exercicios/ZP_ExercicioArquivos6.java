@@ -27,6 +27,7 @@ public class ZP_ExercicioArquivos6 {
 		String pastaOrigem = caminho.getParent();
 		
 		boolean deuCerto = new File(pastaOrigem + "\\out").mkdir();
+		System.out.println("Diretório criado com sucesso: " + deuCerto);
 		
 		String arquivoDestino = pastaOrigem + "\\out\\summary.csv";
 		
