@@ -8,9 +8,9 @@ public class ServicoAluguel {
 	private Double precoPorDia;
 	private Double precoPorHora;
 
-	private TaxaServicoBrasil taxaServico;
+	private TaxaServico taxaServico;
 
-	public ServicoAluguel(Double precoPorDia, Double precoPorHora, TaxaServicoBrasil taxaServico) {
+	public ServicoAluguel(Double precoPorDia, Double precoPorHora, TaxaServico taxaServico) {
 		this.precoPorDia = precoPorDia;
 		this.precoPorHora = precoPorHora;
 		this.taxaServico = taxaServico;
