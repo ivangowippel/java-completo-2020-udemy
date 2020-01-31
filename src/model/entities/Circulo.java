@@ -2,7 +2,7 @@ package model.entities;
 
 import model.entities.enums.Cor;
 
-public class Circulo extends Figura {
+public class Circulo extends FiguraAbstrata {
 
 	private Double raio;
 

@@ -2,7 +2,7 @@ package model.entities;
 
 import model.entities.enums.Cor;
 
-public class Retangulo extends Figura {
+public class Retangulo extends FiguraAbstrata {
 	
 	private Double largura;
 	private Double altura;
