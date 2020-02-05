@@ -2,6 +2,7 @@ package exercicios;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 import model.entities.Product;
 
@@ -16,7 +17,11 @@ public class ZZO_ExercicioConsumer1 {
 		list.add(new Product("Tablet", 550.50));
 		list.add(new Product("HD Case", 80.90));
 		
-		list.forEach(Product::nonStaticPriceUpdate);
+		double factor = 1.10;
+		
+		Consumer<Product> cons = p -> p.setPrice(p.getPrice() * factor);
+		
+		list.forEach(cons);
 		
 		list.forEach(System.out::println);
 
