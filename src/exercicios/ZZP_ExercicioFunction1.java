@@ -2,10 +2,12 @@ package exercicios;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import model.entities.Product;
+import util.UpperCaseName;
 
-public class ZZO_ExercicioConsumer1 {
+public class ZZP_ExercicioFunction1 {
 
 	public static void main(String[] args) {
 
@@ -16,12 +18,10 @@ public class ZZO_ExercicioConsumer1 {
 		list.add(new Product("Tablet", 550.50));
 		list.add(new Product("HD Case", 80.90));
 		
-		double factor = 1.10;
-		
-		list.forEach(p -> p.setPrice(p.getPrice() * factor));
+		List<String> names = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
 
-		list.forEach(System.out::println);
-		
+		names.forEach(System.out::println);
+
 	}
 
 }

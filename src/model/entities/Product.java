@@ -26,14 +26,6 @@ public class Product implements Comparable<Product> {
 		this.price = price;
 	}
 
-	public static void staticPriceUpdate(Product p) {
-		p.setPrice(p.getPrice() * 1.10);
-	}
-
-	public void nonStaticPriceUpdate() {
-		price = price * 1.10;
-	}
-
 	@Override
 	public String toString() {
 		return name + ", " + String.format("%.2f", price);
